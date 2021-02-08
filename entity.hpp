@@ -54,6 +54,8 @@ public:
     virtual std::optional<Entity_Point> getPrimaryPos() const = 0;  // optional since NOT mandatory that every entity will be having a entity_point
     virtual void _Action1() = 0;    //only 2 actions supported as of now
     virtual void _Action2() = 0;
+    
+    std::string entity_name;
 
     virtual void simulateExistence() = 0;   // simulate the work when on a single thread
     virtual void pauseExistence() = 0;
@@ -66,6 +68,7 @@ public:
         // supported_Operations.push_back( &Entity::_Action1 ); //doesn't work
         // supported_Operations.push_back( &Entity::_Action1 ); //doesn't work
         // supported_Operations = {&Entity::_Action1, &Entity::_Action2};
+            this->name = std::string("Abhay") + (_id %2 == 0) ? std::string("Ch"): std::string("stdLLstru");
     }
 
     friend class World;
